@@ -39,7 +39,6 @@
 /lib/tpl/*
 !/lib/tpl/dokuwiki
 !/lib/tpl/index.php
-/lib/plugins/*
 !/lib/plugins/acl
 !/lib/plugins/authad
 !/lib/plugins/authldap

@@ -1,0 +1,8 @@
+# General Plugin Info do not edit
+base     subpages
+author   Martin Lindner
+email    martin@andev.de
+date     2021-01-03
+name     SubPages Plugin
+desc     Show subpages as a list if you add ~~SUBPAGES~~. Based on the dir plugin.
+url      http://www.dokuwiki.org/plugin:subpages
