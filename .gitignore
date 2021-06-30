@@ -10,7 +10,7 @@
 /conf/plugin_lang/*
 /conf/plugins.local.*
 /conf/tpl/*
-
+/conf/local.php.bak.php
 *.swp
 *.bak
 *.old
