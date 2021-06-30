@@ -10,7 +10,7 @@
 /conf/plugin_lang/*
 /conf/plugins.local.*
 /conf/tpl/*
-.htaccess
+
 *.swp
 *.bak
 *.old
