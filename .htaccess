@@ -36,7 +36,7 @@ RewriteCond %{REQUEST_FILENAME}       !-f
 RewriteCond %{REQUEST_FILENAME}       !-d
 RewriteCond %{REQUEST_FILENAME}       !-l
 RewriteRule ^(.*[/]?)start$         -  [L,R=402]
-RewriteRule ^(.*[/]?)st$         $1  [L,R=301]
+RewriteRule ^(.*)/st$         $1/  [L,R=301]
 RewriteRule ^(.*)/$         doku.php?id=$1/st  [QSA,L]
 RewriteRule ^(.*)$                      doku.php?id=$1  [QSA,L]
 RewriteRule ^index.php$               doku.php
