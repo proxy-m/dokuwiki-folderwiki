@@ -6,38 +6,6 @@
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
 echo p_render('xhtml', p_get_instructions('{{pagehere}}'), $info);
-//echo ' '.tpl_pagetitle().' ';
-/*$tmpFullName = cleanID(getID());
-$tmpDirName = getNS($tmpFullName);
-$tmpBaseName = preg_replace('/^'.$tmpDirName.':/', '', $tmpFullName);
-
-$tmpFullName = str_replace(':', '/', $tmpFullName);
-$tmpDirName = str_replace(':', '/', $tmpDirName);
-
-$normalStart = '%E2%96%B6st';
-
-
-//echo 'f='.$tmpFullName.'--d='.$tmpDirName.'--b='.$tmpBaseName;
-
-if (urlencode($tmpBaseName) !==  ($normalStart)) {
- //echo "start no here";
- $curDir = trim(shell_exec('pwd'));
- $newDir = $curDir . '/' . 'data/pages/' . $tmpDirName . '/' . $tmpBaseName;
- shell_exec('mkdir -p ' . $newDir);
- 
- $oldStart = $curDir . '/' . 'data/pages/' . $tmpDirName . '/' . $tmpBaseName . '.txt';
- $newStart = $curDir . '/' . 'data/pages/' . $tmpDirName . '/' . $tmpBaseName . '/' . $normalStart . '.txt';
- 
- //echo '1: '.$oldStart;
- //echo '2:'.$newStart;
- shell_exec('ln -f ' . $newStart . ' ' . $oldStart);
- shell_exec('mv -f ' . $oldStart . ' ' . $newStart);
- 
- //echo "<script> window.location.href += '/$normalSart';</script>";
- echo "<script> window.location.reload();</script>";
-}*/
-
-
 ?>
 
 <!-- ********** HEADER ********** -->
