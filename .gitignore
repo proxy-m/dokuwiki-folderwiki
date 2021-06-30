@@ -63,7 +63,7 @@
 !/lib/plugins/remote.php
 !/lib/plugins/syntax.php
 lib/images/*/local/*
-
+!/data/pages/sidebar.txt
 # composer default ignores
 composer.phar
 vendor/bin/*
