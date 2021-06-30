@@ -5,7 +5,10 @@
 
 // must be run from within DokuWiki
 if (!defined('DOKU_INC')) die();
+//echo p_render('xhtml', p_get_instructions('[[..:|↰..PARENT]]'), $info);
+//echo p_render('xhtml', p_get_instructions('~~SUBPAGES~~'), $info);
 ?>
+
 
 <!-- ********** FOOTER ********** -->
 <div id="dokuwiki__footer"><div class="pad">
