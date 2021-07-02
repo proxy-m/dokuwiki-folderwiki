@@ -7,7 +7,6 @@
 if (!defined('DOKU_INC')) die();
 echo p_render('xhtml', p_get_instructions('{{pagehere}}'), $info);
 ?>
-
 <!-- ********** HEADER ********** -->
 <div id="dokuwiki__header"><div class="pad group">
 

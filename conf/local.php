@@ -7,6 +7,7 @@
  */
 
 $conf['title'] = 'folderwiki';
+$conf['basedir'] = '/eng/folderwiki/';
 $conf['start'] = 'st';
 $conf['license'] = '';
 $conf['breadcrumbs'] = 0;

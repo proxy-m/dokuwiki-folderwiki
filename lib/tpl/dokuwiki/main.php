@@ -12,6 +12,30 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 
 $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
+
+$ID = cleanID(getID());
+$normalStart = urlencode(urldecode($conf['start']));
+$urlDirPrefix = dirname($_SERVER['PHP_SELF']);
+$tmpFullName = urldecode($ID);
+$tmpDirName = urldecode(getNS($tmpFullName));
+$tmpBaseName = urldecode(noNS($ID));
+$canonicalUrl = '';
+if (page_exists($ID))  {
+	$tmpFullName = str_replace(':', '/', $tmpFullName);
+	$tmpDirName = str_replace(':', '/', $tmpDirName);
+	
+	
+	if (urlencode($tmpBaseName) !==  ($normalStart)) {
+		$tmpDirName .= $tmpBaseName;
+	}
+	$tmpBaseName = '';
+	
+	if (strlen($tmpDirName) > 0) {
+		$canonicalUrl = "$urlDirPrefix/$tmpDirName/";
+	} else {
+		$canonicalUrl = "$urlDirPrefix/";
+	}
+}
 ?><!DOCTYPE html>
 <html lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
 <head>
@@ -22,6 +46,9 @@ $showSidebar = $hasSidebar && ($ACT=='show');
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
+    <?php if (strlen($canonicalUrl) > 0) { ?>
+    <link rel="canonical" href="<?= $canonicalUrl ?>" />
+    <?php } ?>
 </head>
 
 <body>
