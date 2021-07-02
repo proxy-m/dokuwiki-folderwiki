@@ -48,8 +48,32 @@ class syntax_plugin_simplenavi extends DokuWiki_Syntax_Plugin {
         $R->info['cache'] = false;
 
         $ns = utf8_encodeFN(str_replace(':','/',$pass[0]));
+        $data0 = array();
         $data = array();
-        search($data,$conf['datadir'],array($this,'_search'),array('ns' => $INFO['id']),$ns,1,'natural');
+        $uniqueTitles = array();
+        search($data0,$conf['datadir'],array($this,'_search'),array('ns' => $INFO['id']),$ns,1,'natural');
+        
+        foreach ($data0 as $ii => $va) {
+        	$t = $this->_title($va['id']);
+        	if (!in_array($t, $uniqueTitles)) {
+        		$data[$ii] = $va;
+        		$data[$ii]['type'] = 'f'; ///
+                $ID = $data[$ii]['id'];
+        		if (substr($ID, -1) === ':') {
+        			$ID = substr($ID, 0, -1); 
+        		} else if (substr($ID, -(strlen($conf['start'])+1)) === ':'.$conf['start']) {
+        			$ID = substr($ID, 0, -(strlen($conf['start'])+1));
+        		}
+        		$data[$ii]['id'] = $ID;
+        		if ($ID === 'sidebar' || $ID === 'i_template' || $ID === 'c_template') { /////
+        			unset($data[$ii]);
+        		}
+        		array_push($uniqueTitles, $t);
+        	}
+        	//var_dump($this->_title($va['id']));
+        }
+        //$data = $data0;
+        
         if ($this->getConf('sortByTitle') == true) {
             $this->_sortByTitle($data,"id");
         } else {
@@ -67,11 +91,13 @@ class syntax_plugin_simplenavi extends DokuWiki_Syntax_Plugin {
 
     function _list($item){
         global $INFO;
+        ///$link = html_wikilink(':'.$item['id'],$this->_title($item['id']));      
+        $link = '<a href="'.wl($item['id']).'/">'.$this->_title($item['id']).'</a>';
 
         if(($item['type'] == 'd' && $item['open']) || $INFO['id'] == $item['id']){
-            return '<strong>'.html_wikilink(':'.$item['id'],$this->_title($item['id'])).'</strong>';
+            return '<strong>'.$link.'</strong>';
         }else{
-            return html_wikilink(':'.$item['id'],$this->_title($item['id']));
+            return $link;
         }
 
     }
