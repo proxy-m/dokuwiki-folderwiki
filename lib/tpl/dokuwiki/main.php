@@ -66,6 +66,7 @@ if (page_exists($ID))  {
                     <div class="content"><div class="group">
                         <?php tpl_flush() ?>
                         <?php tpl_includeFile('sidebarheader.html') ?>
+                        <?php echo p_render('xhtml', p_get_instructions('[[..:|↰..PARENT]]'), $info); ?>
                         <?php tpl_include_page($conf['sidebar'], true, true) ?>
                         <?php tpl_includeFile('sidebarfooter.html') ?>
                     </div></div>

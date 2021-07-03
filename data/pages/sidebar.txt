@@ -1,5 +1,1 @@
-<HTML><div>
-Sidebar Navi
-</div></HTML>
-[[..:|↰..PARENT]]
 {{simplenavi>}}
