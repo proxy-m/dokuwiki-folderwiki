@@ -877,17 +877,17 @@ function tpl_pageinfo($ret = false) {
     // print it
     if($INFO['exists']) {
         $out = '';
-        $out .= '<bdi>'.$fn.'</bdi>';
+        //$out .= '<bdi>'.$fn.'</bdi>';
         $out .= ' · ';
         $out .= $lang['lastmod'];
         $out .= ' ';
         $out .= $date;
-        if($INFO['editor']) {
-            $out .= ' '.$lang['by'].' ';
-            $out .= '<bdi>'.editorinfo($INFO['editor']).'</bdi>';
-        } else {
-            $out .= ' ('.$lang['external_edit'].')';
-        }
+        //if($INFO['editor']) {
+        //    $out .= ' '.$lang['by'].' ';
+        //    $out .= '<bdi>'.editorinfo($INFO['editor']).'</bdi>';
+        //} else {
+        //    $out .= ' ('.$lang['external_edit'].')';
+        //}
         if($INFO['locked']) {
             $out .= ' · ';
             $out .= $lang['lockedby'];
