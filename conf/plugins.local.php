@@ -7,6 +7,7 @@
  *       enabled by default.
  */
 $plugins['authpdo'] = 0;
+$plugins['mredirect'] = 0;
 $plugins['docnavigation'] = 0;
 $plugins['popularity'] = 0;
 $plugins['autostart'] = 0;
