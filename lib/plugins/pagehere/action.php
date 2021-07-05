@@ -35,6 +35,10 @@ class action_plugin_pagehere extends DokuWiki_Action_Plugin {
 
         $ns = getNS($ID);
         $newpage = cleanID($ns.':'.$page);
+        
+        if (substr($newpage, -1) !== ':' && substr($newpage, -(1+strlen($config['start']))) !== (':'.$config['start'])) { // eding slash
+			$newpage .= ':'.$config['start'];
+		}
 
         send_redirect(wl($newpage,array('do'=>'edit'),true,'&'));
     }
