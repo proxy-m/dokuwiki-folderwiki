@@ -94,7 +94,7 @@ class syntax_plugin_simplenavi extends DokuWiki_Syntax_Plugin {
         ///$link = html_wikilink(':'.$item['id'],$this->_title($item['id']));      
         $link = '<a href="'.wl($item['id']).'/">'.$this->_title($item['id']).'</a>';
 
-        if(($item['type'] == 'd' && $item['open']) || $INFO['id'] == $item['id']){
+        if((/*$item['type'] == 'd' &&*/ $item['open']) || $INFO['id'] == $item['id'] || $INFO['id'] == $item['id'].':'.$config['start']){
             return '<strong>'.$link.'</strong>';
         }else{
             return $link;
