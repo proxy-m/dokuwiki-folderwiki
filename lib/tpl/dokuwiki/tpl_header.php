@@ -45,8 +45,11 @@ echo p_render('xhtml', p_get_instructions('{{pagehere}}'), $info);
                             echo '<li class="user">';
                             tpl_userinfo(); /* 'Logged in as ...' */
                             echo '</li>';
-                        }
-                        echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
+                            echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
+                        } else {
+                            /////echo '<!--HARDCODE_BEGIN--><li class="action login"><a href="'.wl().'?do=login&amp;sectok=" title="Log In" rel="nofollow"><span>Log In</span></a></li><!--HARDCODE_END-->';
+                            echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ');
+						}
                     ?>
                 </ul>
             </div>
