@@ -1,3 +1,19 @@
 ====JUST EMPTY TEMPLATE FOR NEW WIKI PAGE====
 
-1. 
+**Bold name** (spa. //negrita nombre//) – strong text example.
+
+  * Unordered List Item A
+  * Unordered List Item B
+
+  - Ordered List Item I
+  - Ordered List Item II
+
+[[https://www.dokuwiki.org/wiki:syntax | Table rows]] have to start and end with a ''|'' for normal rows or a ''^'' for headers
+
+^ Heading 1      ^ Heading 2       ^ Heading 3          ^
+| Row 1 Col 1    | Row 1 Col 2     | Row 1 Col 3        |
+| Row 2 Col 1    | some colspan (note the double pipe) ||
+| Row 3 Col 1    | Row 3 Col 2     | Row 3 Col 3        |
+
+
+You can use <sub>subscript</sub> and <sup>superscript</sup>, too.
