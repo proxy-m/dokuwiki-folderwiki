@@ -8,7 +8,7 @@
 
 $conf['title'] = 'folderwiki';
 $conf['start'] = 'st';
-$conf['template'] = 'dokubook';
+$conf['template'] = 'dokuwiki';
 $conf['license'] = '';
 $conf['basedir'] = '/folderwiki/';
 $conf['breadcrumbs'] = 0;

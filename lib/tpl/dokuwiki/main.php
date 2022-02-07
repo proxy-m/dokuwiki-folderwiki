@@ -13,7 +13,6 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 $hasSidebar = page_findnearest($conf['sidebar']);
 $showSidebar = $hasSidebar && ($ACT=='show');
 
-
 $ID = cleanID(getID());
 $normalStart = urlencode(urldecode($conf['start']));
 $urlDirPrefix = dirname($_SERVER['PHP_SELF']);
@@ -52,33 +51,37 @@ if (page_exists($ID))  {
     <?php } ?>
 </head>
 
-<body class="<?php echo $ACT ?>">
-    <?php tpl_includeFile('topheader.html')?>
-    <div id="dokuwiki__site" class="dokuwiki site">		
-		
-		<?php html_msgarea() ?>
-		<div id="dokuwiki__aside"><div class="pad aside include group">
-        <?php include(__DIR__ . '/../tpl_leftmenu.php') ?>
-        </div></div>
-		
-		<div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
+<body>
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
         echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
+        <?php include('tpl_header.php') ?>
 
-
-
-            
         <div class="wrapper group">
-			    
-			
+
+            <?php if($showSidebar): ?>
+                <!-- ********** ASIDE ********** -->
+                <div id="dokuwiki__aside"><div class="pad aside include group">
+                    <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
+                    <div class="content"><div class="group">
+                        <?php tpl_flush() ?>
+                        <?php tpl_includeFile('sidebarheader.html') ?>
+                        <?php echo p_render('xhtml', p_get_instructions('[[..:|↰..PARENT]]'), $info); ?>
+                        <?php tpl_include_page($conf['sidebar'], true, true) ?>
+                        <?php tpl_includeFile('sidebarfooter.html') ?>
+                    </div></div>
+                </div></div><!-- /aside -->
+            <?php endif; ?>
+
             <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content" class="content"><div class="pad group">
+            <div id="dokuwiki__content"><div class="pad group">
+                <?php html_msgarea() ?>
 
+                <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
 
-                <!--<div class="pageId"><span><?php echo hsc($ID) ?></span></div>-->
-            <?php include(__DIR__ . '/../tpl_header.php') ?>
                 <div class="page group">
                     <?php tpl_flush() ?>
+                    <?php tpl_includeFile('pageheader.html') ?>
                     <!-- wikipage start -->
                     <?php tpl_content() ?>
                     <!-- wikipage stop -->
@@ -103,7 +106,7 @@ if (page_exists($ID))  {
             </div>
         </div><!-- /wrapper -->
 
-        <?php include(__DIR__ . '/../tpl_footer.php') ?>
+        <?php include('tpl_footer.php') ?>
     </div></div><!-- /site -->
 
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
