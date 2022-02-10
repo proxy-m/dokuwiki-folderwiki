@@ -46,15 +46,17 @@
             if (
                  ((!!$this->page_exists($ID) ||  
                    (!$this->page_exists($ID)  && 
-                     !!$this->page_exists($tmpDirName))
-                    ) && 
+                     !!$this->page_exists($tmpDirName)
+                     && urlencode($tmpBaseName) === ($normalStart)
+                   )
+                  ) && 
                     $event->data == 'show' && 
                     strlen(getNS($ID)) > 0
                  )
                )
-            //if (!!$this->page_exists($ID))
             {
-                	//echo "page exists $ID";
+                	//echo "page exists $ID <br />";
+                	//echo "pagent page exists $tmpDirName <br />";
                 	
 
 
