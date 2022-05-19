@@ -904,6 +904,22 @@ function tpl_pageinfo($ret = false) {
     return false;
 }
 
+function tpl_pageinfonew(){
+    global $lang;
+    global $ID;
+ 
+    $pinfo = tpl_pageinfo(true);
+    if ($pinfo === false) return false;
+ 
+    $viewcnt = p_get_metadata($ID, "viewcnt");
+    if ($viewcnt == null) $viewcnt = 0;
+    $viewcnt++;
+    p_set_metadata($ID, array('viewcnt' => $viewcnt));
+ 
+    $pinfo = str_replace(' &middot; ', ' ('.$viewcnt.' '.$lang['views'].') &middot; ', $pinfo);
+    echo $pinfo;
+}
+
 /**
  * Prints or returns the name of the given page (current one if none given).
  *

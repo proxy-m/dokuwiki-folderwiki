@@ -79,7 +79,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                 <?php tpl_flush() ?>
 
                 <?php /* doesn't make sense like this; @todo: maybe add tpl_imginfo()?
-                <div class="docInfo"><?php tpl_pageinfo(); ?></div>
+                <div class="docInfo"><?php tpl_pageinfonew(); ?></div>
                 */ ?>
 
             </div></div><!-- /content -->

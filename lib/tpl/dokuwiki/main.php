@@ -88,7 +88,7 @@ if (page_exists($ID))  {
                     <?php tpl_includeFile('pagefooter.html') ?>
                 </div>
 
-                <div class="docInfo"><?php tpl_pageinfo() ?></div>
+                <div class="docInfo"><?php tpl_pageinfonew() ?></div>
 
                 <?php tpl_flush() ?>
             </div></div><!-- /content -->
