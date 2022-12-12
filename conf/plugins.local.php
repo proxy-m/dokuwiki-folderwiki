@@ -8,10 +8,14 @@
  */
 $plugins['authpdo'] = 0;
 $plugins['mredirect'] = 0;
+$plugins['indexmenu'] = 0;
 $plugins['docnavigation'] = 0;
 $plugins['popularity'] = 0;
+$plugins['info'] = 0;
 $plugins['autostart'] = 0;
 $plugins['authad'] = 0;
 $plugins['authldap'] = 0;
 $plugins['include'] = 0;
+$plugins['styling'] = 0;
+$plugins['safefnrecode'] = 0;
 $plugins['pagelist'] = 0;
