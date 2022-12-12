@@ -48,9 +48,12 @@ alt=""/></a><script>(function(d,s){d.getElementById("licnt9C13").src=
 (document,screen)</script><!--/LiveInternet-->
 
     </div>
+    <div>All rights reserved. You allowed to copy only with link to the site.</div>
 </div></div><!-- /footer -->
 
+<!--
 <div class="litres_fragment_body" style="width: 100%; height: auto;"></div><script type="text/javascript">var litres_fragment_book_view_id = 48411247;var litres_fragment_lfrom = 895231738;var litres_minheight = 500;(function(d, t){var lw = d.createElement(t),s = d.getElementsByTagName(t)[0];lw.async = 1;lw.src = "https://www.litres.ru/static/widgets/js/fragment.js";s.parentNode.insertBefore(lw, s);})(document, "script");</script>
+-->
 
 <?php
 tpl_includeFile('footer.html');

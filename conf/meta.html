@@ -1,0 +1,24 @@
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" crossorigin="anonymous">-->
+
+<link rel="stylesheet" href="/all/fonts/awesome/awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/all/fonts/emoji-awesome/dist/css/apple.min.css">
+<link rel="stylesheet" href="/all/fonts/noto-emoji/font-color-noto.css">
+
+<script type="text/javascript" src="/deps/addtocopy.js"></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        if (window.location.href.indexOf('humour/') >= 0) {
+            jQuery('body').addClass('nb');
+            
+//            setTimeout(function () {
+//                ///jQuery('head').append('<link rel="preload" href="/all/fonts/noto-emoji/NotoColorEmoji.woff2" as="font" crossorigin="anonymous">');
+//                jQuery('body').addClass('nb na');
+//            }, 10000);
+        }
+        
+        jQuery('body').addtocopy({htmlcopytxt: ' <br/>см. подробнее: <a href="'+window.location.href+'">'+window.location.href+'</a>'});
+    };
+</script>
+
+

@@ -93,4 +93,53 @@ div.notify {
     right: -99999em !important;
 }
 
+.plugin_wrap .wrap_bottom_pad {
+    padding-bottom: 40px;
+}
+.plugin_wrap .wrap_top_pad {
+    padding-top: 40px;
+}
+.plugin_wrap .wrap_topbottom_pad {
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
+
+.plugin_wrap.wrap_even_widths {
+  display: flex;
+ 
+  .plugin_wrap {
+    flex: 1;
+ 
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
+}
+
+
+span.wrap_poem {
+  display: block;
+  margin: 2em auto;
+  padding: 1em 2em;
+  width: max-content; 
+  max-width: 90%;
+  white-space: pre-wrap;
+  background-color: #333;
+  color:#fff;
+  border: unset;
+  border-radius: 1em;
+  text-align: center;
+}
+
+
+.wrap_hatnote {
+  padding-left: 1.6em;
+  font-style: italic;
+}
+.wrap_hatnote em, .wrap_hatnote i {
+  font-style: normal;
+}
+
+
 @import "geshi.less";
