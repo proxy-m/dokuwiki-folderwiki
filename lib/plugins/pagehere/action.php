@@ -20,17 +20,45 @@ class action_plugin_pagehere extends DokuWiki_Action_Plugin {
     public function register(Doku_Event_Handler $controller) {
        $controller->register_hook('DOKUWIKI_STARTED', 'AFTER', $this, 'handle_dokuwiki_started');
     }
+    
+    private function fixSpaces ($page) {
+        $page = str_replace(array(' ', '%20'/*пробел*/, "\t"/*табуляция*/, "\r"/*возврат*/, "\n"/*перенос*/, "_", "֊", "̄", "¯", "ˉ", "̱", "ˍ"/*подчеркивание, надчеркиваение, макрон, ентамна, перенос, */, "ー"/*тёон*/, "·", "&nbsp;", "‐", "‑", "-"/*дефис*/, "−"/*минус*/, "–", "—", "‒", "―"/*тире*/, ), '-', $page);
+        $page = preg_replace("/([-])\\1+/", "$1", $page);
+        return $page;
+    }
+    
+    private function fixQuotes ($page) {
+        $page = str_replace(array('"', '`', "'", "’", "«", "»", "<", ">", "⟨", "⟩", "(", ")", "[", "]", "{", "}", "„", "”", "『", "』", "「", "」", "‹", "›", "‚", "‘", "“", "”", "◌̏", "״", "֞", "῎", "◌᷾", "˂", "◌ࣷ"/*апострофы, кавычки, скобки*/,), '', $page);
+        return $page;
+    }
+    
+    private function fixSlashes ($page) {
+        $page = str_replace(array("\\"/*забой*/, "/"/*слеш*/,), '-', $page);
+        return $page;
+    }
+
+    private function fixLowerCase ($page) {
+        $page = strtolower($page);
+        return $page;
+    }
 
     public function handle_dokuwiki_started(Doku_Event &$event, $param) {
         if(!$_REQUEST['pagehere']) return;
 
         global $ID;
         global $conf;
+        
+        $page = $_REQUEST['pagehere'];
+        
+        $page = $this->fixSpaces($page);
+        $page = $this->fixQuotes($page);
 
-        $page = cleanID($_REQUEST['pagehere']);
+        $page = cleanID($page);
         if(!$this->getConf('subns')){
             $page = str_replace(':', $conf['sepchar'], $page);
-
+            $page = $this->fixSlashes($page); // it is different
+            $page = $this->fixSpaces($page);
+            $page = $this->fixLowerCase($page);
         }
 
         $ns = getNS($ID);
